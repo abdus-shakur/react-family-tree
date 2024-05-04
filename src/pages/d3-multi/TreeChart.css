@@ -1,0 +1,18 @@
+.tree-container {
+  position: relative;
+  top: "4rem";
+  left: "4rem";
+}
+
+.link {
+  stroke-width: 2px;
+}
+
+.node {
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+}
+
+.node.spouse {
+  border-color: lightcoral;
+}

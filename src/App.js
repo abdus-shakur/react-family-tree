@@ -4,6 +4,9 @@ import FamilyTree from './pages/familyTree/FamilyTree';
 import LayoutFlow from './pages/familyTree/LayoutFlow';
 import { ReactFlowProvider } from 'reactflow';
 import LayoutFlowCust from './pages/familyTree/LayoutFlowCust';
+import D3Fam from './pages/d3-multi/d3FamTree';
+import TreeChart from './pages/d3-multi/d3FamTree';
+import PageRouter from './pages/PageRouter';
 
 function App() {
   return (
@@ -22,12 +25,13 @@ function App() {
           Learn React
         </a>
       </header> */}
-      <FamilyTree/>
+      {/* <TreeChart/> */}
       {/* <div style={{ width: '100vw', height: '100vh' }} >
       <ReactFlowProvider>
       <LayoutFlowCust/>
       </ReactFlowProvider>
       </div> */}
+      <PageRouter/>
     </div>
   );
 }
