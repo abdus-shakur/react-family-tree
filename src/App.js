@@ -1,10 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
+import FamilyTree from './pages/familyTree/FamilyTree';
+import LayoutFlow from './pages/familyTree/LayoutFlow';
+import { ReactFlowProvider } from 'reactflow';
+import LayoutFlowCust from './pages/familyTree/LayoutFlowCust';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -17,7 +21,13 @@ function App() {
         >
           Learn React
         </a>
-      </header>
+      </header> */}
+      <FamilyTree/>
+      {/* <div style={{ width: '100vw', height: '100vh' }} >
+      <ReactFlowProvider>
+      <LayoutFlowCust/>
+      </ReactFlowProvider>
+      </div> */}
     </div>
   );
 }
