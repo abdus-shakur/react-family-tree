@@ -339,7 +339,7 @@ export default function FamilyTreePage() {
     return (
       <>
       
-        <Card className="primary-login">
+        <Card className="primary-login" >
           <Typography variant="h6" textAlign={"center"}>
             Login with Email or Phone
           </Typography>
