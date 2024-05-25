@@ -339,7 +339,7 @@ export default function FamilyTreePage() {
     return (
       <>
       
-        <Card className="primary-login" sx={{backgroundColor:'rgba(255,255,255,0.9)'}}>
+        <Card className="primary-login" sx={{backgroundColor:'rgba(255,255,255,0.9)',backdropFilter:'blur(2px)'}}>
         <Typography variant="h5" textAlign={"center"} sx={{color:'green',fontWeight:800}}>
             Rooted Ancestry
           </Typography>
