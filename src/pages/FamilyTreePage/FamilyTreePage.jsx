@@ -5,6 +5,7 @@ import {
   Box,
   Button,
   Card,
+  Chip,
   Divider,
   IconButton,
   Snackbar,
@@ -394,8 +395,9 @@ export default function FamilyTreePage() {
               marginBottom: "1rem",
               color: "white",
               fontWeight: 800,
+              // borderBottom:'2px solid white'
             }}
-          />
+          ><Chip label="or Sign Up" size="large" color="success"/></Divider>
           <FirebaseAuthUI />
           {/* <div id="recaptcha-container"></div> */}
         </div>
