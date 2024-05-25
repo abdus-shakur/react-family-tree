@@ -27,7 +27,8 @@ export default function PageRouter() {
       <Route path="/family-tree-app" element={<FamilyTreeContent/>}></Route>
       <Route path="/welcome" element={<Welcome/>}></Route>
       <Route path="/descendant-chart" element={<FamilyTree/>}></Route>
-      <Route path="*" element={<App/>}></Route>
+      <Route path="/apps" element={<App/>}></Route>
+      <Route path="*" element={<FamilyTreePage/>}></Route>
     </Routes>
   </BrowserRouter>;
 }
