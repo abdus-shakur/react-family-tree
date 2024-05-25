@@ -340,6 +340,9 @@ export default function FamilyTreePage() {
       <>
       
         <Card className="primary-login" >
+        <Typography variant="h5" textAlign={"center"} sx={{color:'green',fontWeight:800}}>
+            Rooted Ancestry
+          </Typography>
           <Typography variant="h6" textAlign={"center"}>
             Login with Email or Phone
           </Typography>
