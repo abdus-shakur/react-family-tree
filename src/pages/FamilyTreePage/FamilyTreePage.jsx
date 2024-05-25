@@ -15,18 +15,20 @@ import {
 import { useNavigate } from "react-router-dom";
 import FirebaseUI from "../../config/firebaseUi";
 import FirebaseAuthUI from "../../config/FirebaseUiWidget";
-
+import firebase from 'firebase/compat/app'
 import "firebaseui/dist/firebaseui.css";
 import "./FamilyTreePage.scss";
 import { Close, Label } from "@mui/icons-material";
 import {
   RecaptchaVerifier,
+  fetchSignInMethodsForEmail,
   getAuth,
   signInWithCredential,
   signInWithEmailAndPassword,
   signInWithPhoneNumber,
 } from "firebase/auth";
 import { auth } from "../../config/firebaseConfig";
+
 
 export default function FamilyTreePage() {
   const defaultOptions = {
@@ -193,9 +195,18 @@ export default function FamilyTreePage() {
 
     function showPasswordOrSendOtp(){
       if (String(uname).includes("@")){
-        setShowPassword(true)
-        setShowNameError(false)
-        setNameError('')
+          fetchSignInMethodsForEmail(firebase.auth(),uname).then(resp=>{
+            console.log(resp)
+            if(resp.length>0){
+              setShowPassword(true)
+              setShowNameError(false)
+              setNameError('')
+            }else{
+              setShowNameError(true)
+              setNameError('Email address doesnt exist please signup')
+            }
+          })
+        
       }else if (uname && uname.length>6){
         let number = uname;
         if(String(uname).trim().charAt(0)!=='+'){
@@ -395,6 +406,8 @@ export default function FamilyTreePage() {
               marginBottom: "1rem",
               color: "white",
               fontWeight: 800,
+              borderBottomWidth: 5 ,
+              borderBottomColor:'red'
               // borderBottom:'2px solid white'
             }}
           ><Chip label="or Sign Up" size="large" color="success"/></Divider>

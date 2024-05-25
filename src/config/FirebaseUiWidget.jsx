@@ -2,8 +2,8 @@
 import React, { useEffect } from "react";
 // import { auth } from "./firebaseConfig";
 import { ui, uiConfig } from "./firebaseUi";
-import { RecaptchaVerifier ,getAuth, signInWithPhoneNumber} from "firebase/auth";
 import firebase from 'firebase/compat/app';
+import { RecaptchaVerifier ,getAuth, signInWithPhoneNumber} from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 const FirebaseAuthUI = () => {
   // useEffect(() => {

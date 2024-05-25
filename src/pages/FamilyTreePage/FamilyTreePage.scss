@@ -15,6 +15,11 @@
   
 }
 
+.css-1snc6fc-MuiDivider-root::before, .css-1snc6fc-MuiDivider-root::after{
+  border-top: 2px solid rgba(241, 238, 238, 0.473) !important;
+}
+
+
 
 
 .firebaseui-idp-button {
@@ -55,6 +60,7 @@
 .firebaseui-idp-list{
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around
 }
 
 .firebaseui-container{
