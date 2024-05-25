@@ -4,6 +4,7 @@ import FamilyTreePage from './FamilyTreePage/FamilyTreePage'
 import FamilyTreeContent from './FamilyTreePage/FamilyTreeContent'
 import App from "./AppSelector/App";
 import { Card, Container } from "@mui/material";
+import Welcome from "./FamilyTreePage/Welcome";
 
 export default function PageRouter() {
 
@@ -24,6 +25,7 @@ export default function PageRouter() {
       <Route path="/selection" element={<AppSelection/>}></Route>
       <Route path="/login-page" element={<FamilyTreePage/>}></Route>
       <Route path="/family-tree-app" element={<FamilyTreeContent/>}></Route>
+      <Route path="/welcome" element={<Welcome/>}></Route>
       <Route path="/descendant-chart" element={<FamilyTree/>}></Route>
       <Route path="*" element={<App/>}></Route>
     </Routes>

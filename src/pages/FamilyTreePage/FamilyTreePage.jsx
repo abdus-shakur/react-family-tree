@@ -38,7 +38,7 @@ export default function FamilyTreePage() {
   };
   const navigate = useNavigate();
   function launchPage() {
-    navigate("/family-tree-content");
+    navigate("/welcome");
   }
   const Dummy = () => {
     return (
@@ -219,7 +219,7 @@ export default function FamilyTreePage() {
         signInWithEmailAndPassword(auth, uname, pwd.current.value)
           .then((response) => {
             console.log(response);
-            navigate("/family-tree-app");
+            navigate("/welcome");
           })
           .catch((error) => {setShowSnack(true);setShowNameError(true);setNameError('Invalid Username / Password'); setSnackMessage("Error Logging in user with email and password. check credentials "+error)});
     }
@@ -294,7 +294,7 @@ export default function FamilyTreePage() {
         setShowSnack(true)
         setSnackMessage("Phone number verified successfully")
         // alert(JSON.stringify(result));
-        navigate('/family-tree-app')
+        navigate('/welcome')
       } catch (error) {
         setMessage("Error during OTP verification: " + error.message);
       }
@@ -368,7 +368,6 @@ export default function FamilyTreePage() {
           {(showPassword||showOtpVerify)&&
           <Button onClick={()=>{setShowPassword(false);setShowOtpverify(false)}}>Back</Button>}
           {/* </Box> */}
-          
           {message && <p>{message}</p>}
         </Card>
         <Snackbar
@@ -379,15 +378,14 @@ export default function FamilyTreePage() {
           action={action}
           anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
           color={'success'}
-
         />
       </>
     );
   };
   return (
     <>
-      <div class="backdrop">
-        <div class="login">
+      <div className="backdrop">
+        <div className="login">
           <EmailOrPhoneLogin/>
           {/* <PhoneAuthentication /> */}
           <Divider

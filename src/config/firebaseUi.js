@@ -1,13 +1,15 @@
 // firebaseUIConfig.js
+import { app } from './firebaseConfig';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
-import { auth } from './firebaseConfig';
+import { Navigate } from 'react-router-dom';
+
+// var firebaseui = require('firebaseui');
 // import * as firebaseui from 'firebaseui';
 var firebaseui = require('firebaseui')
 
 let countryCode;
 countryCode = await getDefaultCountry()
-
 
 var uiConfig = {
     callbacks: {
@@ -18,7 +20,7 @@ var uiConfig = {
         console.log(JSON.stringify(authResult))
         console.log(redirectUrl)
         alert(JSON.stringify(authResult))
-        
+      
         return true;
       },
       signInFailure: (error) => {
@@ -44,16 +46,18 @@ var uiConfig = {
     signInSuccessUrl: '<url-to-redirect-to-on-success>',
     signInOptions: [
       // Leave the lines as is for the providers you want to offer your users.
+      firebase.auth.EmailAuthProvider.PROVIDER_ID,
+      {
+        provider: firebase.auth.PhoneAuthProvider.PROVIDER_ID,
+        defaultCountry: countryCode, // Set the default country code to 'IN' for India
+    },
       firebase.auth.GoogleAuthProvider.PROVIDER_ID,
       firebase.auth.FacebookAuthProvider.PROVIDER_ID,
       firebase.auth.TwitterAuthProvider.PROVIDER_ID,
       firebase.auth.GithubAuthProvider.PROVIDER_ID,
-      firebase.auth.EmailAuthProvider.PROVIDER_ID,
+      
       // firebase.auth.PhoneAuthProvider.PROVIDER_ID,
-      {
-        provider: firebase.auth.PhoneAuthProvider.PROVIDER_ID,
-        defaultCountry: countryCode, // Set the default country code to 'IN' for India
-    }
+    
     ],
     
     // Terms of service url.
@@ -67,9 +71,9 @@ var uiConfig = {
 let ui;
 
 // Initialize the FirebaseUI Widget using Firebase.
-if (firebase.apps.length === 0) {
-    ui = new firebaseui.auth.AuthUI(auth);
-}
+// if (firebase.apps.length === 0) {
+    ui = new firebaseui.auth.AuthUI(firebase.auth());
+// }
 
 const uiConfigAlt = {
     signInSuccessUrl: '/', // URL to redirect to after a successful sign-in
