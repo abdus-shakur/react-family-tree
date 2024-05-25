@@ -317,6 +317,7 @@ export default function FamilyTreePage() {
     function handleEmailChange(e){
       console.log(e.target.value)
       setShowNameError(false);
+      setNameError(null)
       setUname(e.target.value)
   }
 
